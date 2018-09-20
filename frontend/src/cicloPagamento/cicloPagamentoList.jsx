@@ -10,13 +10,13 @@ class CicloPagamentoList extends Component{
         this.props.getList()
     }
 
-    renderRows(){
-        const list = this.props.list || []
+    renderRows(){        
+        const list = this.props.list || []        
         return list.map(cp => (
-            <tr key={bc._id}>
-                <td>{bc.name}</td>
-                <td>{bc.mes}</td>
-                <td>{bc.ano}</td>
+            <tr key={cp._id}>
+                <td>{cp.name}</td>
+                <td>{cp.mes}</td>
+                <td>{cp.ano}</td>
             </tr>
         ))
     }

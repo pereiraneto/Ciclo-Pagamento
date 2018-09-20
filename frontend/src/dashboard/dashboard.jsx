@@ -15,6 +15,8 @@ class Dashboard extends Component{
     }
 
     render(){
+        console.log(this.props.summary);
+        
         const {credit, debit} = this.props.summary
         return (
             <div>
