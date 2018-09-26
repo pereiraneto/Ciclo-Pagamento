@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
 import {selectTab, showTabs} from '../common/tab/tabActions'
-import {create} from './cicloPagamentoActions'
+import {create, update, remove} from './cicloPagamentoActions'
 
 import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
@@ -38,10 +38,14 @@ class CicloPagamento extends Component{
                                 <CicloPagamentoList />
                             </TabContent>
                             <TabContent id='tabCreate'>
-                                <CicloPagamentoForm onSubmit={this.props.create} />  
+                                <CicloPagamentoForm submitClass="primary" label="Incluir" onSubmit={this.props.create} />  
                             </TabContent>
-                            <TabContent id='tabUpdate'><h1>Alterar</h1></TabContent>
-                            <TabContent id='tabDelete'><h1>Deletar</h1></TabContent>
+                            <TabContent id='tabUpdate'>
+                                <CicloPagamentoForm submitClass="info" label="Alterar" onSubmit={this.props.update} />
+                            </TabContent>
+                            <TabContent id='tabDelete'>
+                                <CicloPagamentoForm submitClass="danger" label="Excluir" onSubmit={this.props.remove} readOnly={true} />
+                            </TabContent>
                         </TabsContent>
                     </Tabs>
                 </Content>
@@ -51,5 +55,5 @@ class CicloPagamento extends Component{
 }
 
 const mapStateToProps = state => ({tab: state.tab})
-const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove}, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(CicloPagamento)
