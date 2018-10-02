@@ -6,6 +6,7 @@ import { reduxForm, Field} from 'redux-form'
 
 import {init} from './cicloPagamentoActions'
 import labelAndInput from '../common/form/labelAndInput'
+import listaCreditos from './listaCreditos'
 
 class CicloPagamentoForm extends Component{
 
@@ -17,6 +18,7 @@ class CicloPagamentoForm extends Component{
                     <Field name="name" component={labelAndInput} readOnly={readOnly} label="Nome" cols="12 4" placeholder="Informe o nome"/>
                     <Field name="mes" component={labelAndInput} readOnly={readOnly} label="Mês" cols="12 4" placeholder="Informe o mês" type="number"/>
                     <Field name="ano" component={labelAndInput} readOnly={readOnly} label="Ano" cols="12 4" placeholder="Informe o ano" type="number"/>
+                    <listaCreditos cols="12 6" readOnly={readOnly}/>
                 </div>
                 <div className="box-footer">
                     <button type="submit" className={`btn btn-${this.props.submitClass}`}>{this.props.label}</button>
